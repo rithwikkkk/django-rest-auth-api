@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-j8-jm#%3@6yh@rx&a-!5f^zci!s7(m!cax3w=^8z0c9z*%kai3"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'django-rest-auth-api-1.onrender.com',
