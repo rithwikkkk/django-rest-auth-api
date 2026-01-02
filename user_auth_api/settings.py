@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-j8-jm#%3@6yh@rx&a-!5f^zci!s7(m!cax3w=^8z0c9z*%kai3
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'django-rest-auth-api-1.onrender.com',
+    '.onrender.com',
     'localhost',
     '127.0.0.1',
 ]
