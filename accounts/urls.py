@@ -14,3 +14,11 @@ urlpatterns = [
     path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
+
+from .views import EmailTokenObtainPairView
+
+urlpatterns = [
+    path('register/', RegisterView.as_view()),
+    path('profile/', ProfileView.as_view()),
+    path('token/', EmailTokenObtainPairView.as_view(), name='token'),
+]

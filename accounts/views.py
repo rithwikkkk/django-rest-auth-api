@@ -55,3 +55,10 @@ def logout_view(request):
             {"error": "Invalid token"},
             status=status.HTTP_400_BAD_REQUEST
         )
+
+
+from rest_framework_simplejwt.views import TokenObtainPairView
+from .jwt import EmailTokenObtainPairSerializer
+
+class EmailTokenObtainPairView(TokenObtainPairView):
+    serializer_class = EmailTokenObtainPairSerializer
