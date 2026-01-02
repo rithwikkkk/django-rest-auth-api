@@ -1,8 +1,16 @@
 from django.urls import path
-from .views import profile_view, register_view, logout_view
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
+from .views import RegisterView, ProfileView
 
 urlpatterns = [
-    path('profile/', profile_view, name='profile'),
-    path('register/', register_view, name='register'),
-    path('logout/', logout_view, name='logout'),
+    path('register/', RegisterView.as_view(), name='register'),
+    path('profile/', ProfileView.as_view(), name='profile'),
+    path('api',include('accounts.urls'))''
+
+    # JWT endpoints 
+    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
