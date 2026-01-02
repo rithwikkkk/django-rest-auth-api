@@ -16,8 +16,23 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from rest_framework.permissions import AllowAny
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+
+schema_view = get_schema_view(
+    openapi.Info(
+        title="User Auth API",
+        default_version='v1',
+        description="JWT Authentication API",
+    ),
+    public=True,
+    permission_classes=[AllowAny],
+)
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    path('admin/', admin.site.urls),
+    path('api/', include('accounts.urls')),
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0)),
 ]
